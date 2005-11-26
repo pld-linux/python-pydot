@@ -1,12 +1,12 @@
 # TODO:
 # - summary, desc,
 %define 	module	pydot
-Summary:	Python package for 
-Summary(pl):	Pakiet dla Pythona
+Summary:	Python package with interface to Graphviz's Dot language 
+Summary(pl):	Pakiet dla pytona
 Name:		python-%{module}
 Version:	0.9.10
 Release:	0.1
-License:	GPL v2+
+License:	MIT
 Group:		Libraries/Python
 Source0:	http://dkbza.org/data/%{module}-%{version}.tar.gz
 # Source0-md5:	d59609a3b69b19ad018c55d765945baf
