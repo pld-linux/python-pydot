@@ -1,5 +1,3 @@
-# TODO:
-# - summary, desc,
 %define 	module	pydot
 Summary:	Python interface to Graphviz's Dot language 
 Summary(pl):	Pythonowy interfejs do jêzyka Dot z pakietu Graphviz
@@ -11,11 +9,10 @@ Group:		Libraries/Python
 Source0:	http://dkbza.org/data/%{module}-%{version}.tar.gz
 # Source0-md5:	d59609a3b69b19ad018c55d765945baf
 URL:		http://dkbza.org/pydot.html
-BuildRequires:	graphviz-devel
-BuildRequires:	graphviz-python
-BuildRequires:	python-pyparsing
+BuildRequires:	python-pyparsing >= 1.2
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
+Requires:	python-pyparsing >= 1.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,7 +36,6 @@ python setup.py build
 %install
 rm -rf $RPM_BUILD_ROOT
 
-#broken!
 python setup.py install --optimize=2 --root=$RPM_BUILD_ROOT
 
 find $RPM_BUILD_ROOT%{py_scriptdir} -type f -name "*.py" | xargs rm
@@ -49,5 +45,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
-%{py_sitescriptdir}/*
+%doc ChangeLog LICENSE README
+%{py_sitescriptdir}/*.py[co]
