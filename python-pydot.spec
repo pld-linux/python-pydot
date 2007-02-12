@@ -1,6 +1,6 @@
 %define 	module	pydot
 Summary:	Python interface to Graphviz's Dot language 
-Summary(pl):	Pythonowy interfejs do jêzyka Dot z pakietu Graphviz
+Summary(pl.UTF-8):   Pythonowy interfejs do jÄ™zyka Dot z pakietu Graphviz
 Name:		python-%{module}
 Version:	0.9.10
 Release:	0.1
@@ -21,10 +21,10 @@ pydot provides an interface for creating both directed and non
 directed graphs from Python. Currently all attributes implemented in
 the Dot language up to Graphviz 1.16 are supported.
 
-%description -l pl
-pydot udostêpnia interfejs do tworzenia zarówno skierowanych jak i
-nieskierowanych grafów z poziomu Pythona. Aktualnie obs³uguje
-wszystkie atrybuty zaimplementowane w jêzyku dot do wersji Graphviza
+%description -l pl.UTF-8
+pydot udostÄ™pnia interfejs do tworzenia zarÃ³wno skierowanych jak i
+nieskierowanych grafÃ³w z poziomu Pythona. Aktualnie obsÅ‚uguje
+wszystkie atrybuty zaimplementowane w jÄ™zyku dot do wersji Graphviza
 1.16.
 
 %prep
