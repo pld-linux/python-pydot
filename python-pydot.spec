@@ -1,6 +1,6 @@
 %define 	module	pydot
 Summary:	Python interface to Graphviz's Dot language 
-Summary(pl.UTF-8):   Pythonowy interfejs do języka Dot z pakietu Graphviz
+Summary(pl.UTF-8):	Pythonowy interfejs do języka Dot z pakietu Graphviz
 Name:		python-%{module}
 Version:	0.9.10
 Release:	0.1
