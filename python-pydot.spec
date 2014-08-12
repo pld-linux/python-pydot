@@ -1,17 +1,19 @@
 %define 	module	pydot
-Summary:	Python interface to Graphviz's Dot language 
+Summary:	Python interface to Graphviz's Dot language
 Summary(pl.UTF-8):	Pythonowy interfejs do języka Dot z pakietu Graphviz
 Name:		python-%{module}
-Version:	0.9.10
+Version:	1.0.28
 Release:	0.1
 License:	MIT
 Group:		Libraries/Python
-Source0:	http://dkbza.org/data/%{module}-%{version}.tar.gz
-# Source0-md5:	d59609a3b69b19ad018c55d765945baf
-URL:		http://dkbza.org/pydot.html
+Source0:	http://pydot.googlecode.com/files/pydot-%{version}.tar.gz
+# Source0-md5:	c0a7a027176a62c412fd0f54951af692
+URL:		http://code.google.com/p/pydot/
 BuildRequires:	python-pyparsing >= 1.2
 BuildRequires:	rpm-pythonprov
-%pyrequires_eq	python-modules
+# if py_postclean is used
+BuildRequires:	rpmbuild(macros) >= 1.219
+Requires:	python-modules
 Requires:	python-pyparsing >= 1.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -19,31 +21,37 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 pydot provides an interface for creating both directed and non
 directed graphs from Python. Currently all attributes implemented in
-the Dot language up to Graphviz 1.16 are supported.
+the Dot language up to Graphviz 2.26.3 are supported.
 
 %description -l pl.UTF-8
 pydot udostępnia interfejs do tworzenia zarówno skierowanych jak i
 nieskierowanych grafów z poziomu Pythona. Aktualnie obsługuje
 wszystkie atrybuty zaimplementowane w języku dot do wersji Graphviza
-1.16.
+2.26.3.
 
 %prep
 %setup -q -n %{module}-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build --build-base build-2
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 python setup.py install --optimize=2 --root=$RPM_BUILD_ROOT
-
-find $RPM_BUILD_ROOT%{py_scriptdir} -type f -name "*.py" | xargs rm
+%{__python} setup.py \
+        build --build-base build-2 \
+        install --skip-build \
+        --optimize=2 \
+        --root=$RPM_BUILD_ROOT
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog LICENSE README
+# %%doc ChangeLog LICENSE README
 %{py_sitescriptdir}/*.py[co]
+%if "%{py_ver}" > "2.4"
+%{py_sitescriptdir}/pydot-*.egg-info
+%endif
