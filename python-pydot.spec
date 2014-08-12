@@ -3,7 +3,7 @@ Summary:	Python interface to Graphviz's Dot language
 Summary(pl.UTF-8):	Pythonowy interfejs do języka Dot z pakietu Graphviz
 Name:		python-%{module}
 Version:	1.0.28
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	http://pydot.googlecode.com/files/pydot-%{version}.tar.gz
