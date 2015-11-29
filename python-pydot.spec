@@ -12,7 +12,7 @@ URL:		http://code.google.com/p/pydot/
 BuildRequires:	python-pyparsing >= 1.2
 BuildRequires:	rpm-pythonprov
 # if py_postclean is used
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-modules
 Requires:	python-pyparsing >= 1.2
 BuildArch:	noarch
